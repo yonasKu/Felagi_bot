@@ -37,7 +37,7 @@ class CategoriesHandler:
                     emoji = get_category_emoji(category)
                     row.append(InlineKeyboardButton(
                         f"{emoji} {category}",
-                        callback_data=f"cat_{category.lower()}"
+                        callback_data=f"cat_{category.lower()}_1"
                     ))
                 keyboard.append(row)
             
@@ -73,55 +73,87 @@ class CategoriesHandler:
         """Handle category selection"""
         try:
             query = update.callback_query
-            category = query.data.replace("cat_", "").title()
+            await query.answer()
+
+            # Extract category and page number from callback data
+            data = query.data.split('_')
+            category = data[1].title()  # Convert to title case
+            page = int(data[2]) if len(data) > 2 else 1
             
-            # Debug logging
-            logger.debug(f"Processing category selection: {category}")
+            logger.debug(f"Processing category: {category}, page: {page}")
             
-            # Get places for this category
-            places, status = get_nearby_places(category=category)
-            
-            logger.debug(f"Found {len(places)} places for category {category}")
-            
+            # Get all places for this category
+            places, status = get_nearby_places(None, None, max_distance=None)
             if status == "OK" and places:
-                # Format the response
-                response = f"📍 *{category} in Addis Ababa*\n\n"
+                # Filter places by category
+                category_places = [p for p in places if p.get('category') == category]
                 
-                for place in places:
+                if category_places:
+                    # Pagination
+                    items_per_page = 6
+                    start_idx = (page - 1) * items_per_page
+                    end_idx = start_idx + items_per_page
+                    current_places = category_places[start_idx:end_idx]
+                    total_pages = (len(category_places) + items_per_page - 1) // items_per_page
+                    
+                    # Format response
                     emoji = get_category_emoji(category)
-                    response += f"{emoji} *{place['name']}*\n"
-                    if 'description' in place and place['description']:
-                        response += f"ℹ️ {place['description']}\n"
-                    if 'opening_hours' in place and place['opening_hours']:
-                        response += f"🕒 {place['opening_hours']}\n"
-                    if 'amenities' in place and place['amenities']:
-                        response += f"✨ {', '.join(place['amenities'][:3])}\n"
-                    response += "\n"
-                
-                keyboard = [
-                    [InlineKeyboardButton("🔙 Back to Categories", callback_data="nav_categories")],
-                    [InlineKeyboardButton("🏠 Main Menu", callback_data="menu_back")]
-                ]
-                
-                try:
+                    response = f"{emoji} *{category} Places*\n"
+                    response += f"Page {page} of {total_pages}\n\n"
+                    
+                    for place in current_places:
+                        response += f"🏢 *{place['name']}*\n"
+                        if 'area' in place:
+                            response += f"📍 Area: {place['area']}\n"
+                        if 'description' in place:
+                            response += f"ℹ️ {place['description']}\n"
+                        if 'opening_hours' in place:
+                            response += f"🕒 {place['opening_hours']}\n"
+                        if 'contact' in place:
+                            contact = place['contact']
+                            if 'phone' in contact:
+                                response += f"📞 {contact['phone']}\n"
+                            if 'website' in contact:
+                                response += f"🌐 {contact['website']}\n"
+                        response += "\n"
+                    
+                    # Navigation buttons
+                    keyboard = []
+                    nav_row = []
+                    
+                    if page > 1:
+                        nav_row.append(InlineKeyboardButton(
+                            "◀️ Previous",
+                            callback_data=f"cat_{category.lower()}_{page-1}"
+                        ))
+                    
+                    if page < total_pages:
+                        nav_row.append(InlineKeyboardButton(
+                            "Next ▶️",
+                            callback_data=f"cat_{category.lower()}_{page+1}"
+                        ))
+                    
+                    if nav_row:
+                        keyboard.append(nav_row)
+                    
+                    keyboard.extend([
+                        [InlineKeyboardButton("📋 Back to Categories", callback_data="nav_categories")],
+                        [InlineKeyboardButton("🔙 Main Menu", callback_data="menu_back")]
+                    ])
+                    
                     await query.message.edit_text(
                         response,
                         reply_markup=InlineKeyboardMarkup(keyboard),
                         parse_mode='Markdown'
                     )
-                    logger.debug(f"Successfully sent response for category {category}")
-                except Exception as e:
-                    logger.error(f"Error sending category response: {str(e)}")
-                    await handle_error(update, "Failed to display category results")
-            else:
-                keyboard = [[InlineKeyboardButton("🔙 Back to Categories", callback_data="nav_categories")]]
-                await query.message.edit_text(
-                    f"No places found in category: {category}",
-                    reply_markup=InlineKeyboardMarkup(keyboard)
-                )
-                logger.debug(f"No places found for category {category}")
-            
-            await query.answer()
+                    return
+                
+            # If no places found or error occurred
+            keyboard = [[InlineKeyboardButton("🔙 Back to Categories", callback_data="nav_categories")]]
+            await query.message.edit_text(
+                f"No places found in category: {category}",
+                reply_markup=InlineKeyboardMarkup(keyboard)
+            )
             
         except Exception as e:
             logger.error(f"Error handling category selection: {str(e)}", exc_info=True)

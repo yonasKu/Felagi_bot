@@ -331,3 +331,81 @@ TypeError: '<=' not supported between instances of 'float' and 'NoneType'
 2025-02-08 20:57:11,263 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
 2025-02-08 20:57:17,004 - bot - INFO - Button clicked: nav_categories
 2025-02-08 20:57:17,004 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:15:02,605 - bot - INFO - Starting bot...
+2025-02-08 23:15:04,437 - bot - INFO - Bot handlers registered successfully
+2025-02-08 23:15:08,500 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 23:15:10,306 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 23:15:18,385 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 23:15:18,385 - findme_handler - INFO - Received location: lat=9.001944, lon=38.709319
+2025-02-08 23:15:18,888 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:15:18,920 - utils - INFO - No places found within 2000m of coordinates (9.001944, 38.709319)
+2025-02-08 23:15:23,198 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:15:23,218 - utils - INFO - Found 25 places
+2025-02-08 23:15:28,375 - bot - INFO - Button clicked: menu_back
+2025-02-08 23:15:29,898 - bot - INFO - Button clicked: nav_categories
+2025-02-08 23:15:29,913 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:15:31,304 - bot - INFO - Button clicked: cat_healthcare
+2025-02-08 23:15:31,319 - categories_handler - DEBUG - Processing category selection: Healthcare
+2025-02-08 23:15:31,319 - categories_handler - ERROR - Error handling category selection: get_nearby_places() got an unexpected keyword argument 'category'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\categories.py", line 82, in handle_category_selection
+    places, status = get_nearby_places(category=category)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_nearby_places() got an unexpected keyword argument 'category'
+2025-02-08 23:15:31,334 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 23:15:34,650 - bot - INFO - Button clicked: menu_back
+2025-02-08 23:15:35,857 - bot - INFO - Button clicked: nav_categories
+2025-02-08 23:15:35,857 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:15:37,268 - bot - INFO - Button clicked: cat_healthcare
+2025-02-08 23:15:37,268 - categories_handler - DEBUG - Processing category selection: Healthcare
+2025-02-08 23:15:37,268 - categories_handler - ERROR - Error handling category selection: get_nearby_places() got an unexpected keyword argument 'category'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\categories.py", line 82, in handle_category_selection
+    places, status = get_nearby_places(category=category)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_nearby_places() got an unexpected keyword argument 'category'
+2025-02-08 23:15:37,285 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 23:15:37,285 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 23:15:38,856 - bot - INFO - Button clicked: menu_back
+2025-02-08 23:18:49,676 - bot - INFO - Starting bot...
+2025-02-08 23:18:51,385 - bot - INFO - Bot handlers registered successfully
+2025-02-08 23:18:54,570 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 23:18:56,064 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 23:19:05,505 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 23:19:05,505 - findme_handler - INFO - Received location: lat=9.001944, lon=38.709319
+2025-02-08 23:19:06,366 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:06,366 - utils - INFO - No places found within 2000m of coordinates (9.001944, 38.709319)
+2025-02-08 23:19:11,403 - bot - INFO - Button clicked: nav_findme
+2025-02-08 23:19:14,150 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:14,165 - utils - INFO - Found 25 places
+2025-02-08 23:19:18,932 - bot - INFO - Button clicked: menu_back
+2025-02-08 23:19:22,117 - bot - INFO - Button clicked: nav_categories
+2025-02-08 23:19:22,117 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:19:23,322 - bot - INFO - Button clicked: cat_shopping_1
+2025-02-08 23:19:23,474 - categories_handler - DEBUG - Processing category: Shopping, page: 1
+2025-02-08 23:19:23,474 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:23,474 - utils - INFO - Found 25 places
+2025-02-08 23:19:26,101 - bot - INFO - Button clicked: nav_categories
+2025-02-08 23:19:26,101 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:19:27,493 - bot - INFO - Button clicked: cat_entertainment_1
+2025-02-08 23:19:27,685 - categories_handler - DEBUG - Processing category: Entertainment, page: 1
+2025-02-08 23:19:27,685 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:27,710 - utils - INFO - Found 25 places
+2025-02-08 23:19:29,493 - bot - INFO - Button clicked: nav_categories
+2025-02-08 23:19:29,493 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:19:30,978 - bot - INFO - Button clicked: cat_sports_1
+2025-02-08 23:19:31,199 - categories_handler - DEBUG - Processing category: Sports, page: 1
+2025-02-08 23:19:31,199 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:31,235 - utils - INFO - Found 25 places
+2025-02-08 23:19:33,050 - bot - INFO - Button clicked: nav_categories
+2025-02-08 23:19:33,050 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 23:19:35,591 - bot - INFO - Button clicked: menu_back
+2025-02-08 23:19:37,097 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 23:19:45,253 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 23:19:45,253 - findme_handler - INFO - Received location: lat=9.001944, lon=38.709319
+2025-02-08 23:19:46,074 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:46,089 - utils - INFO - No places found within 2000m of coordinates (9.001944, 38.709319)
+2025-02-08 23:19:50,868 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:19:50,868 - utils - INFO - Found 25 places
+2025-02-08 23:20:01,378 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:20:01,393 - utils - INFO - Found 25 places
