@@ -1,0 +1,425 @@
+{
+  "locations": [
+    {
+      "name": "Sheraton Addis",
+      "coordinates": {
+        "latitude": 9.0301,
+        "longitude": 38.7492
+      },
+      "area": "Kirkos",
+      "category": "Hotels",
+      "description": "Luxury 5-star hotel with multiple restaurants and spa facilities.",
+      "opening_hours": "24/7",
+      "contact": {
+        "phone": "+251 11 517 1717",
+        "email": "reservations.addis@luxurycollection.com"
+      },
+      "amenities": [
+        "Spa",
+        "Swimming Pool",
+        "Fine Dining",
+        "Free WiFi",
+        "Gym"
+      ]
+    },
+    {
+      "name": "Skylight Hotel",
+      "coordinates": {
+        "latitude": 8.9778,
+        "longitude": 38.7993
+      },
+      "area": "Bole",
+      "category": "Hotels",
+      "description": "Modern hotel near Bole Airport with excellent facilities.",
+      "opening_hours": "24/7",
+      "contact": {
+        "phone": "+251 11 681 8181",
+        "website": "www.ethiopianairlines.com/skylight-hotel"
+      },
+      "amenities": [
+        "Restaurant",
+        "Conference Rooms",
+        "Gym",
+        "Free WiFi"
+      ]
+    },
+    {
+      "name": "Yod Abyssinia Cultural Restaurant",
+      "coordinates": {
+        "latitude": 8.9869,
+        "longitude": 38.7864
+      },
+      "area": "Bole",
+      "category": "Restaurants",
+      "description": "Traditional Ethiopian cuisine with cultural performances.",
+      "opening_hours": "10:00 AM - 11:00 PM",
+      "amenities": [
+        "Live Music",
+        "Traditional Dance",
+        "Parking",
+        "Cultural Shows"
+      ]
+    },
+    {
+      "name": "Tomoca Coffee",
+      "coordinates": {
+        "latitude": 9.0243,
+        "longitude": 38.7527
+      },
+      "area": "Bole",
+      "category": "Cafes",
+      "description": "Historic Ethiopian coffee shop serving fresh roasted coffee.",
+      "opening_hours": "7:00 AM - 8:00 PM",
+      "amenities": [
+        "Fresh Coffee",
+        "Coffee Beans",
+        "Pastries"
+      ]
+    },
+    {
+      "name": "Edna Mall",
+      "coordinates": {
+        "latitude": 8.9982,
+        "longitude": 38.7885
+      },
+      "area": "Bole",
+      "category": "Shopping",
+      "description": "Popular shopping center with cinema and restaurants.",
+      "opening_hours": "9:00 AM - 10:00 PM",
+      "contact": {
+        "phone": "+251 11 667 0000"
+      },
+      "amenities": [
+        "Cinema",
+        "Food Court",
+        "Parking",
+        "Shopping"
+      ]
+    },
+    {
+      "name": "Unity Park",
+      "coordinates": {
+        "latitude": 9.0341,
+        "longitude": 38.7615
+      },
+      "area": "Kirkos",
+      "category": "Cultural",
+      "description": "Historical park within the National Palace compound.",
+      "opening_hours": "8:00 AM - 6:00 PM",
+      "amenities": [
+        "Museum",
+        "Gardens",
+        "Cafe",
+        "Historical Tours"
+      ]
+    },
+    {
+      "name": "Bole Medhanialem Church",
+      "coordinates": {
+        "latitude": 9.0168,
+        "longitude": 38.7682
+      },
+      "area": "Bole",
+      "category": "Cultural",
+      "description": "Beautiful Orthodox church in Bole area.",
+      "opening_hours": "6:00 AM - 6:00 PM",
+      "amenities": [
+        "Prayer Hall",
+        "Religious Art",
+        "Gift Shop"
+      ]
+    },
+    {
+      "name": "Entoto Park",
+      "coordinates": {
+        "latitude": 9.0484,
+        "longitude": 38.7581
+      },
+      "area": "Kirkos",
+      "category": "Entertainment",
+      "description": "Modern recreational park with amazing city views.",
+      "opening_hours": "6:00 AM - 10:00 PM",
+      "amenities": [
+        "Zip Line",
+        "Restaurant",
+        "Hiking Trails",
+        "Mountain Biking"
+      ]
+    },
+    {
+      "name": "Addis Ababa University",
+      "coordinates": {
+        "latitude": 9.0371,
+        "longitude": 38.7611
+      },
+      "area": "Kirkos",
+      "category": "Education",
+      "description": "Ethiopia's oldest and largest higher education institution.",
+      "opening_hours": "8:00 AM - 5:00 PM",
+      "amenities": [
+        "Library",
+        "Cafeteria",
+        "Sports Facilities",
+        "Museum"
+      ]
+    },
+    {
+      "name": "Zewditu Hospital",
+      "coordinates": {
+        "latitude": 9.0243,
+        "longitude": 38.7527
+      },
+      "area": "Bole",
+      "category": "Healthcare",
+      "description": "Major public hospital in the city center.",
+      "opening_hours": "24/7",
+      "amenities": [
+        "Emergency Care",
+        "Pharmacy",
+        "Laboratory",
+        "Specialists"
+      ]
+    },
+    {
+      "name": "Commercial Bank of Ethiopia",
+      "coordinates": {
+        "latitude": 9.0233,
+        "longitude": 38.7502
+      },
+      "area": "Bole",
+      "category": "Banks",
+      "description": "Main branch of Ethiopia's largest bank.",
+      "opening_hours": "8:00 AM - 4:00 PM",
+      "amenities": [
+        "ATM",
+        "Foreign Exchange",
+        "Banking Services"
+      ]
+    },
+    {
+      "name": "Ghion Hotel",
+      "coordinates": {
+        "latitude": 9.0336,
+        "longitude": 38.7520
+      },
+      "area": "Kirkos",
+      "category": "Hotels",
+      "description": "Historic hotel with beautiful gardens.",
+      "opening_hours": "24/7",
+      "amenities": [
+        "Swimming Pool",
+        "Restaurant",
+        "Garden",
+        "Conference Rooms"
+      ]
+    },
+    {
+      "name": "Bole Stadium",
+      "coordinates": {
+        "latitude": 9.0141,
+        "longitude": 38.7759
+      },
+      "area": "Bole",
+      "category": "Sports",
+      "description": "Multi-purpose stadium in Bole area.",
+      "opening_hours": "6:00 AM - 9:00 PM",
+      "amenities": [
+        "Running Track",
+        "Football Field",
+        "Fitness Area"
+      ]
+    },
+    {
+      "name": "National Museum of Ethiopia",
+      "coordinates": {
+        "latitude": 9.0379,
+        "longitude": 38.7612
+      },
+      "area": "Kirkos",
+      "category": "Cultural",
+      "description": "Home to Lucy and other historical artifacts.",
+      "opening_hours": "8:30 AM - 5:00 PM",
+      "amenities": [
+        "Guided Tours",
+        "Gift Shop",
+        "Archaeological Exhibits"
+      ]
+    },
+    {
+      "name": "Friendship Park",
+      "coordinates": {
+        "latitude": 9.0258,
+        "longitude": 38.7452
+      },
+      "area": "Kirkos",
+      "category": "Entertainment",
+      "description": "Modern park with fountains and recreational areas.",
+      "opening_hours": "6:00 AM - 9:00 PM",
+      "amenities": [
+        "Fountains",
+        "Walking Paths",
+        "Children's Play Area",
+        "Cafe"
+      ]
+    },
+    {
+      "name": "Dashen Bank",
+      "coordinates": {
+        "latitude": 9.0168,
+        "longitude": 38.7682
+      },
+      "area": "Bole",
+      "category": "Banks",
+      "description": "Major private bank headquarters.",
+      "opening_hours": "8:00 AM - 4:00 PM",
+      "amenities": [
+        "ATM",
+        "Foreign Exchange",
+        "Modern Banking"
+      ]
+    },
+    {
+      "name": "Bole 23 Restaurant",
+      "coordinates": {
+        "latitude": 8.9982,
+        "longitude": 38.7885
+      },
+      "area": "Bole",
+      "category": "Restaurants",
+      "description": "Popular restaurant serving international cuisine.",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "amenities": [
+        "Bar",
+        "Live Music",
+        "Outdoor Seating",
+        "Parking"
+      ]
+    },
+    {
+      "name": "Kaldi's Coffee",
+      "coordinates": {
+        "latitude": 9.0168,
+        "longitude": 38.7682
+      },
+      "area": "Bole",
+      "category": "Cafes",
+      "description": "Popular coffee chain with comfortable seating.",
+      "opening_hours": "6:00 AM - 10:00 PM",
+      "amenities": [
+        "WiFi",
+        "Pastries",
+        "Air Conditioning",
+        "Coffee"
+      ]
+    },
+    {
+      "name": "Meskel Square",
+      "coordinates": {
+        "latitude": 9.0105,
+        "longitude": 38.7612
+      },
+      "area": "Kirkos",
+      "category": "Cultural",
+      "description": "Historic square and major landmark of Addis Ababa.",
+      "opening_hours": "24/7",
+      "contact": {
+        "website": "www.addisababa.gov.et"
+      },
+      "amenities": [
+        "Public Events",
+        "Historical Site",
+        "Photo Point"
+      ]
+    },
+    {
+      "name": "Bole Medhanialem Cathedral",
+      "coordinates": {
+        "latitude": 9.0168,
+        "longitude": 38.7682
+      },
+      "area": "Bole",
+      "category": "Cultural",
+      "description": "One of the largest Orthodox churches in Ethiopia.",
+      "opening_hours": "6:00 AM - 6:00 PM",
+      "contact": {
+        "phone": "+251 11 551 8881"
+      },
+      "amenities": [
+        "Religious Services",
+        "Cultural Tours",
+        "Gift Shop"
+      ]
+    },
+    {
+      "name": "Piazza Post Office",
+      "coordinates": {
+        "latitude": 9.0024,
+        "longitude": 38.7503
+      },
+      "area": "Piazza",
+      "category": "Cultural",
+      "description": "Historic post office building in Piazza area.",
+      "opening_hours": "8:00 AM - 5:00 PM",
+      "contact": {
+        "phone": "+251 11 551 2345"
+      }
+    },
+    {
+      "name": "St. George Cathedral",
+      "coordinates": {
+        "latitude": 9.0034,
+        "longitude": 38.7467
+      },
+      "area": "Piazza",
+      "category": "Cultural",
+      "description": "Historic Orthodox cathedral with beautiful architecture.",
+      "opening_hours": "6:00 AM - 6:00 PM",
+      "contact": {
+        "phone": "+251 11 551 5678"
+      }
+    },
+    {
+      "name": "National Museum of Ethiopia",
+      "coordinates": {
+        "latitude": 9.0021,
+        "longitude": 38.7614
+      },
+      "area": "Arat Kilo",
+      "category": "Cultural",
+      "description": "Home to Lucy and other historical artifacts.",
+      "opening_hours": "8:30 AM - 5:00 PM",
+      "contact": {
+        "phone": "+251 11 111 7150",
+        "website": "www.nationalmuseum.gov.et"
+      }
+    },
+    {
+      "name": "Taitu Hotel",
+      "coordinates": {
+        "latitude": 9.0027,
+        "longitude": 38.7492
+      },
+      "area": "Piazza",
+      "category": "Hotels",
+      "description": "Ethiopia's first hotel, historic building with restaurant.",
+      "opening_hours": "24/7",
+      "contact": {
+        "phone": "+251 11 551 0059"
+      }
+    },
+    {
+      "name": "Tomoca Coffee Piazza",
+      "coordinates": {
+        "latitude": 9.0029,
+        "longitude": 38.7489
+      },
+      "area": "Piazza",
+      "category": "Cafes",
+      "description": "Historic Ethiopian coffee shop serving fresh roasted coffee.",
+      "opening_hours": "7:00 AM - 8:00 PM",
+      "contact": {
+        "phone": "+251 11 551 2839"
+      }
+    }
+  ]
+}

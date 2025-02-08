@@ -1,0 +1,333 @@
+2025-02-08 19:15:17,066 - bot - INFO - Starting bot...
+2025-02-08 19:15:19,676 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:15:21,352 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:15:23,707 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:15:23,711 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897 via command
+2025-02-08 19:15:23,715 - findme_handler - ERROR - Error in start_findme: 'NoneType' object has no attribute 'reply_text'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\findme.py", line 31, in start_findme
+    await update.message.reply_text(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2025-02-08 19:15:23,732 - error_handler - ERROR - Error: Failed to start location search
+2025-02-08 19:15:27,389 - bot - INFO - Button clicked: menu_back
+2025-02-08 19:15:29,441 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:15:29,445 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897 via command
+2025-02-08 19:15:29,448 - findme_handler - ERROR - Error in start_findme: 'NoneType' object has no attribute 'reply_text'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\findme.py", line 31, in start_findme
+    await update.message.reply_text(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2025-02-08 19:15:29,458 - error_handler - ERROR - Error: Failed to start location search
+2025-02-08 19:15:29,458 - error_handler - ERROR - Error: Failed to start location search
+2025-02-08 19:18:12,667 - bot - INFO - Starting bot...
+2025-02-08 19:18:14,272 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:18:17,698 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:18:21,270 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:18:21,270 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 19:18:44,101 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 19:18:51,493 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:18:51,506 - findme_handler - INFO - Received location: lat=9.001981, lon=38.709246
+2025-02-08 19:18:51,508 - utils - INFO - Searching places - lat:9.001981, lon:38.709246, category:None
+2025-02-08 19:18:51,511 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:18:51,513 - utils - DEBUG - 
+    Category Search Debug:
+    Category: None
+    Number of places: 18
+    Places found: ['Sheraton Addis', 'Skylight Hotel', 'Yod Abyssinia Cultural Restaurant', 'Tomoca Coffee', 'Edna Mall', 'Unity Park', 'Bole Medhanialem Church', 'Entoto Park', 'Addis Ababa University', 'Zewditu Hospital', 'Commercial Bank of Ethiopia', 'Ghion Hotel', 'Bole Stadium', 'National Museum of Ethiopia', 'Friendship Park', 'Dashen Bank', 'Bole 23 Restaurant', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Sheraton Addis', 'coordinates': {'latitude': 9.0301, 'longitude': 38.7492}, 'category': 'Hotels', 'description': 'Luxury 5-star hotel with multiple restaurants and spa facilities.', 'opening_hours': '24/7', 'amenities': ['Spa', 'Swimming Pool', 'Fine Dining', 'Free WiFi', 'Gym']}
+    
+2025-02-08 19:23:57,924 - bot - INFO - Starting bot...
+2025-02-08 19:23:59,565 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:24:29,594 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:24:31,758 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:24:31,761 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 19:24:52,039 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 19:24:57,457 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:25:02,163 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:25:02,168 - findme_handler - INFO - Received location: lat=9.001971, lon=38.709259
+2025-02-08 19:25:02,373 - utils - INFO - Searching places - lat:9.001971, lon:38.709259, category:None
+2025-02-08 19:25:02,379 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:25:02,382 - utils - DEBUG - 
+    Category Search Debug:
+    Category: None
+    Number of places: 18
+    Places found: ['Sheraton Addis', 'Skylight Hotel', 'Yod Abyssinia Cultural Restaurant', 'Tomoca Coffee', 'Edna Mall', 'Unity Park', 'Bole Medhanialem Church', 'Entoto Park', 'Addis Ababa University', 'Zewditu Hospital', 'Commercial Bank of Ethiopia', 'Ghion Hotel', 'Bole Stadium', 'National Museum of Ethiopia', 'Friendship Park', 'Dashen Bank', 'Bole 23 Restaurant', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Sheraton Addis', 'coordinates': {'latitude': 9.0301, 'longitude': 38.7492}, 'category': 'Hotels', 'description': 'Luxury 5-star hotel with multiple restaurants and spa facilities.', 'opening_hours': '24/7', 'amenities': ['Spa', 'Swimming Pool', 'Fine Dining', 'Free WiFi', 'Gym']}
+    
+2025-02-08 19:26:11,905 - bot - INFO - Starting bot...
+2025-02-08 19:26:13,438 - bot - ERROR - Error starting bot: type object 'FindMeHandler' has no attribute 'get_handler'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\bot.py", line 68, in main
+    app.add_handler(FindMeHandler.get_handler())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'FindMeHandler' has no attribute 'get_handler'
+2025-02-08 19:27:46,163 - bot - INFO - Starting bot...
+2025-02-08 19:27:47,697 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:27:49,235 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:27:52,458 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:27:52,462 - bot - ERROR - Error handling button click: type object 'FindMeHandler' has no attribute 'start_findme'
+2025-02-08 19:27:52,467 - error_handler - ERROR - Error: Could not process your selection
+2025-02-08 19:32:56,722 - bot - INFO - Starting bot...
+2025-02-08 19:32:58,285 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:33:12,251 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:33:14,508 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:33:20,043 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:33:23,319 - bot - INFO - Button clicked: nav_findme
+2025-02-08 19:34:52,039 - bot - INFO - Starting bot...
+2025-02-08 19:34:53,627 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:35:01,000 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:35:06,329 - findme_handler - INFO - Find Nearby Places initiated by button from User 8123395897
+2025-02-08 19:35:11,650 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:35:11,656 - findme_handler - INFO - Received location: lat=9.002075, lon=38.709179
+2025-02-08 19:35:11,863 - utils - INFO - Searching places - lat:9.002075, lon:38.709179, category:None
+2025-02-08 19:35:11,869 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:35:11,871 - utils - DEBUG - 
+    Category Search Debug:
+    Category: None
+    Number of places: 18
+    Places found: ['Sheraton Addis', 'Skylight Hotel', 'Yod Abyssinia Cultural Restaurant', 'Tomoca Coffee', 'Edna Mall', 'Unity Park', 'Bole Medhanialem Church', 'Entoto Park', 'Addis Ababa University', 'Zewditu Hospital', 'Commercial Bank of Ethiopia', 'Ghion Hotel', 'Bole Stadium', 'National Museum of Ethiopia', 'Friendship Park', 'Dashen Bank', 'Bole 23 Restaurant', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Sheraton Addis', 'coordinates': {'latitude': 9.0301, 'longitude': 38.7492}, 'category': 'Hotels', 'description': 'Luxury 5-star hotel with multiple restaurants and spa facilities.', 'opening_hours': '24/7', 'amenities': ['Spa', 'Swimming Pool', 'Fine Dining', 'Free WiFi', 'Gym']}
+    
+2025-02-08 19:35:23,527 - findme_handler - INFO - Find Nearby Places initiated by command from User 8123395897
+2025-02-08 19:35:31,836 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:35:31,837 - findme_handler - INFO - Received location: lat=9.002075, lon=38.709179
+2025-02-08 19:35:32,349 - utils - INFO - Searching places - lat:9.002075, lon:38.709179, category:None
+2025-02-08 19:35:32,365 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:35:32,367 - utils - DEBUG - 
+    Category Search Debug:
+    Category: None
+    Number of places: 18
+    Places found: ['Sheraton Addis', 'Skylight Hotel', 'Yod Abyssinia Cultural Restaurant', 'Tomoca Coffee', 'Edna Mall', 'Unity Park', 'Bole Medhanialem Church', 'Entoto Park', 'Addis Ababa University', 'Zewditu Hospital', 'Commercial Bank of Ethiopia', 'Ghion Hotel', 'Bole Stadium', 'National Museum of Ethiopia', 'Friendship Park', 'Dashen Bank', 'Bole 23 Restaurant', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Sheraton Addis', 'coordinates': {'latitude': 9.0301, 'longitude': 38.7492}, 'category': 'Hotels', 'description': 'Luxury 5-star hotel with multiple restaurants and spa facilities.', 'opening_hours': '24/7', 'amenities': ['Spa', 'Swimming Pool', 'Fine Dining', 'Free WiFi', 'Gym']}
+    
+2025-02-08 19:35:34,694 - findme_handler - INFO - Find Nearby Places initiated by button from User 8123395897
+2025-02-08 19:35:37,904 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:35:37,911 - findme_handler - INFO - Received location: lat=9.002085, lon=38.709166
+2025-02-08 19:35:38,145 - utils - INFO - Searching places - lat:9.002085, lon:38.709166, category:None
+2025-02-08 19:35:38,153 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:35:38,155 - utils - DEBUG - 
+    Category Search Debug:
+    Category: None
+    Number of places: 18
+    Places found: ['Sheraton Addis', 'Skylight Hotel', 'Yod Abyssinia Cultural Restaurant', 'Tomoca Coffee', 'Edna Mall', 'Unity Park', 'Bole Medhanialem Church', 'Entoto Park', 'Addis Ababa University', 'Zewditu Hospital', 'Commercial Bank of Ethiopia', 'Ghion Hotel', 'Bole Stadium', 'National Museum of Ethiopia', 'Friendship Park', 'Dashen Bank', 'Bole 23 Restaurant', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Sheraton Addis', 'coordinates': {'latitude': 9.0301, 'longitude': 38.7492}, 'category': 'Hotels', 'description': 'Luxury 5-star hotel with multiple restaurants and spa facilities.', 'opening_hours': '24/7', 'amenities': ['Spa', 'Swimming Pool', 'Fine Dining', 'Free WiFi', 'Gym']}
+    
+2025-02-08 19:35:41,534 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:35:43,091 - findme_handler - INFO - Find Nearby Places initiated by button from User 8123395897
+2025-02-08 19:35:51,176 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:35:51,176 - findme_handler - INFO - Received location: lat=9.002085, lon=38.709166
+2025-02-08 19:35:51,830 - utils - INFO - Searching places - lat:9.002085, lon:38.709166, category:None
+2025-02-08 19:35:51,838 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:35:51,840 - utils - DEBUG - 
+    Category Search Debug:
+    Category: None
+    Number of places: 18
+    Places found: ['Sheraton Addis', 'Skylight Hotel', 'Yod Abyssinia Cultural Restaurant', 'Tomoca Coffee', 'Edna Mall', 'Unity Park', 'Bole Medhanialem Church', 'Entoto Park', 'Addis Ababa University', 'Zewditu Hospital', 'Commercial Bank of Ethiopia', 'Ghion Hotel', 'Bole Stadium', 'National Museum of Ethiopia', 'Friendship Park', 'Dashen Bank', 'Bole 23 Restaurant', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Sheraton Addis', 'coordinates': {'latitude': 9.0301, 'longitude': 38.7492}, 'category': 'Hotels', 'description': 'Luxury 5-star hotel with multiple restaurants and spa facilities.', 'opening_hours': '24/7', 'amenities': ['Spa', 'Swimming Pool', 'Fine Dining', 'Free WiFi', 'Gym']}
+    
+2025-02-08 19:35:54,150 - bot - INFO - Button clicked: menu_back
+2025-02-08 19:35:55,584 - bot - INFO - Button clicked: nav_categories
+2025-02-08 19:35:55,588 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 19:35:57,226 - bot - INFO - Button clicked: cat_cafes
+2025-02-08 19:35:57,228 - categories_handler - DEBUG - Processing category selection: Cafes
+2025-02-08 19:35:57,230 - utils - INFO - Searching places - lat:None, lon:None, category:Cafes
+2025-02-08 19:35:57,233 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:35:57,235 - utils - DEBUG - Comparing categories: hotels vs cafes
+2025-02-08 19:35:57,237 - utils - DEBUG - Comparing categories: hotels vs cafes
+2025-02-08 19:35:57,239 - utils - DEBUG - Comparing categories: restaurants vs cafes
+2025-02-08 19:35:57,242 - utils - DEBUG - Comparing categories: cafes vs cafes
+2025-02-08 19:35:57,242 - utils - DEBUG - Comparing categories: shopping vs cafes
+2025-02-08 19:35:57,245 - utils - DEBUG - Comparing categories: cultural vs cafes
+2025-02-08 19:35:57,248 - utils - DEBUG - Comparing categories: cultural vs cafes
+2025-02-08 19:35:57,249 - utils - DEBUG - Comparing categories: entertainment vs cafes
+2025-02-08 19:35:57,252 - utils - DEBUG - Comparing categories: education vs cafes
+2025-02-08 19:35:57,253 - utils - DEBUG - Comparing categories: healthcare vs cafes
+2025-02-08 19:35:57,253 - utils - DEBUG - Comparing categories: banks vs cafes
+2025-02-08 19:35:57,253 - utils - DEBUG - Comparing categories: hotels vs cafes
+2025-02-08 19:35:57,259 - utils - DEBUG - Comparing categories: sports vs cafes
+2025-02-08 19:35:57,261 - utils - DEBUG - Comparing categories: cultural vs cafes
+2025-02-08 19:35:57,263 - utils - DEBUG - Comparing categories: entertainment vs cafes
+2025-02-08 19:35:57,264 - utils - DEBUG - Comparing categories: banks vs cafes
+2025-02-08 19:35:57,266 - utils - DEBUG - Comparing categories: restaurants vs cafes
+2025-02-08 19:35:57,268 - utils - DEBUG - Comparing categories: cafes vs cafes
+2025-02-08 19:35:57,269 - utils - DEBUG - 
+    Category Search Debug:
+    Category: Cafes
+    Number of places: 2
+    Places found: ['Tomoca Coffee', "Kaldi's Coffee"]
+    Raw data sample: {'name': 'Tomoca Coffee', 'coordinates': {'latitude': 9.0243, 'longitude': 38.7527}, 'category': 'Cafes', 'description': 'Historic Ethiopian coffee shop serving fresh roasted coffee.', 'opening_hours': '7:00 AM - 8:00 PM', 'amenities': ['Fresh Coffee', 'Coffee Beans', 'Pastries']}
+    
+2025-02-08 19:35:57,273 - categories_handler - DEBUG - Found 2 places for category Cafes
+2025-02-08 19:35:57,432 - categories_handler - DEBUG - Successfully sent response for category Cafes
+2025-02-08 19:35:58,863 - bot - INFO - Button clicked: menu_back
+2025-02-08 19:36:00,703 - bot - INFO - Button clicked: nav_info
+2025-02-08 19:36:00,707 - info_handler - INFO - Info accessed by User 8123395897
+2025-02-08 19:36:04,861 - bot - INFO - Button clicked: menu_back
+2025-02-08 19:36:06,438 - bot - INFO - Button clicked: nav_categories
+2025-02-08 19:36:06,440 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 19:36:08,077 - bot - INFO - Button clicked: cat_education
+2025-02-08 19:36:08,081 - categories_handler - DEBUG - Processing category selection: Education
+2025-02-08 19:36:08,083 - utils - INFO - Searching places - lat:None, lon:None, category:Education
+2025-02-08 19:36:08,086 - utils - DEBUG - Total locations loaded: 18
+2025-02-08 19:36:08,088 - utils - DEBUG - Comparing categories: hotels vs education
+2025-02-08 19:36:08,090 - utils - DEBUG - Comparing categories: hotels vs education
+2025-02-08 19:36:08,093 - utils - DEBUG - Comparing categories: restaurants vs education
+2025-02-08 19:36:08,094 - utils - DEBUG - Comparing categories: cafes vs education
+2025-02-08 19:36:08,096 - utils - DEBUG - Comparing categories: shopping vs education
+2025-02-08 19:36:08,098 - utils - DEBUG - Comparing categories: cultural vs education
+2025-02-08 19:36:08,099 - utils - DEBUG - Comparing categories: cultural vs education
+2025-02-08 19:36:08,102 - utils - DEBUG - Comparing categories: entertainment vs education
+2025-02-08 19:36:08,103 - utils - DEBUG - Comparing categories: education vs education
+2025-02-08 19:36:08,106 - utils - DEBUG - Comparing categories: healthcare vs education
+2025-02-08 19:36:08,107 - utils - DEBUG - Comparing categories: banks vs education
+2025-02-08 19:36:08,110 - utils - DEBUG - Comparing categories: hotels vs education
+2025-02-08 19:36:08,111 - utils - DEBUG - Comparing categories: sports vs education
+2025-02-08 19:36:08,111 - utils - DEBUG - Comparing categories: cultural vs education
+2025-02-08 19:36:08,111 - utils - DEBUG - Comparing categories: entertainment vs education
+2025-02-08 19:36:08,117 - utils - DEBUG - Comparing categories: banks vs education
+2025-02-08 19:36:08,118 - utils - DEBUG - Comparing categories: restaurants vs education
+2025-02-08 19:36:08,118 - utils - DEBUG - Comparing categories: cafes vs education
+2025-02-08 19:36:08,123 - utils - DEBUG - 
+    Category Search Debug:
+    Category: Education
+    Number of places: 1
+    Places found: ['Addis Ababa University']
+    Raw data sample: {'name': 'Addis Ababa University', 'coordinates': {'latitude': 9.0371, 'longitude': 38.7611}, 'category': 'Education', 'description': "Ethiopia's oldest and largest higher education institution.", 'opening_hours': '8:00 AM - 5:00 PM', 'amenities': ['Library', 'Cafeteria', 'Sports Facilities', 'Museum']}
+    
+2025-02-08 19:36:08,123 - categories_handler - DEBUG - Found 1 places for category Education
+2025-02-08 19:36:08,459 - categories_handler - DEBUG - Successfully sent response for category Education
+2025-02-08 19:39:04,402 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:39:09,121 - bot - INFO - Button clicked: nav_info
+2025-02-08 19:39:09,121 - info_handler - INFO - Info accessed by User 8123395897
+2025-02-08 19:39:10,760 - bot - INFO - Button clicked: menu_back
+2025-02-08 19:51:24,850 - bot - INFO - Starting bot...
+2025-02-08 19:51:26,433 - bot - INFO - Bot handlers registered successfully
+2025-02-08 19:51:37,253 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 19:51:40,536 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 19:51:46,069 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 19:51:46,082 - findme_handler - INFO - Received location: lat=9.001961, lon=38.709271
+2025-02-08 19:51:46,790 - error_handler - ERROR - Error: No places found nearby
+2025-02-08 20:00:43,993 - bot - INFO - Starting bot...
+2025-02-08 20:00:45,728 - bot - INFO - Bot handlers registered successfully
+2025-02-08 20:00:48,103 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 20:00:50,139 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:01:01,303 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:01:01,309 - findme_handler - INFO - Received location: lat=9.001961, lon=38.709271
+2025-02-08 20:01:02,078 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:01:02,088 - utils - INFO - No places found within 2000m of coordinates (9.001961, 38.709271)
+2025-02-08 20:01:06,635 - bot - INFO - Button clicked: nav_categories
+2025-02-08 20:01:06,638 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 20:01:08,262 - bot - INFO - Button clicked: cat_cafes
+2025-02-08 20:01:08,262 - categories_handler - DEBUG - Processing category selection: Cafes
+2025-02-08 20:01:08,268 - categories_handler - ERROR - Error handling category selection: get_nearby_places() got an unexpected keyword argument 'category'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\categories.py", line 82, in handle_category_selection
+    places, status = get_nearby_places(category=category)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_nearby_places() got an unexpected keyword argument 'category'
+2025-02-08 20:01:08,279 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 20:01:11,725 - bot - INFO - Button clicked: menu_back
+2025-02-08 20:01:14,490 - bot - INFO - Button clicked: nav_categories
+2025-02-08 20:01:14,493 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 20:01:16,151 - bot - INFO - Button clicked: cat_entertainment
+2025-02-08 20:01:16,151 - categories_handler - DEBUG - Processing category selection: Entertainment
+2025-02-08 20:01:16,157 - categories_handler - ERROR - Error handling category selection: get_nearby_places() got an unexpected keyword argument 'category'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\categories.py", line 82, in handle_category_selection
+    places, status = get_nearby_places(category=category)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_nearby_places() got an unexpected keyword argument 'category'
+2025-02-08 20:01:16,168 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 20:01:16,168 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 20:01:18,180 - bot - INFO - Button clicked: menu_back
+2025-02-08 20:01:20,029 - bot - INFO - Button clicked: nav_categories
+2025-02-08 20:01:20,033 - categories_handler - INFO - Showing categories to User 8123395897
+2025-02-08 20:01:21,459 - bot - INFO - Button clicked: cat_entertainment
+2025-02-08 20:01:21,463 - categories_handler - DEBUG - Processing category selection: Entertainment
+2025-02-08 20:01:21,466 - categories_handler - ERROR - Error handling category selection: get_nearby_places() got an unexpected keyword argument 'category'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\handlers\categories.py", line 82, in handle_category_selection
+    places, status = get_nearby_places(category=category)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_nearby_places() got an unexpected keyword argument 'category'
+2025-02-08 20:01:21,475 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 20:01:21,475 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 20:01:21,475 - error_handler - ERROR - Error: Failed to process category selection
+2025-02-08 20:01:23,498 - bot - INFO - Button clicked: menu_back
+2025-02-08 20:11:48,099 - bot - INFO - Starting bot...
+2025-02-08 20:11:49,756 - bot - INFO - Bot handlers registered successfully
+2025-02-08 20:12:20,185 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 20:12:32,891 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:12:42,285 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:12:42,288 - findme_handler - INFO - Received location: lat=9.001932, lon=38.709309
+2025-02-08 20:12:42,928 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:12:42,940 - utils - INFO - No places found within 2000m of coordinates (9.001932, 38.709309)
+2025-02-08 20:12:55,651 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:12:55,659 - utils - ERROR - Error getting nearby places: '<=' not supported between instances of 'float' and 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\utils.py", line 108, in get_nearby_places
+    if distance <= max_distance:
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<=' not supported between instances of 'float' and 'NoneType'
+2025-02-08 20:12:55,673 - error_handler - ERROR - Error: Failed to find places
+2025-02-08 20:13:00,945 - bot - INFO - Button clicked: menu_back
+2025-02-08 20:13:10,147 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:13:18,551 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:13:18,551 - findme_handler - INFO - Received location: lat=9.001932, lon=38.709309
+2025-02-08 20:13:19,177 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:13:19,190 - utils - INFO - No places found within 2000m of coordinates (9.001932, 38.709309)
+2025-02-08 20:13:26,246 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:13:26,246 - utils - ERROR - Error getting nearby places: '<=' not supported between instances of 'float' and 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\Yonas\Desktop\proj\Location_Bot\utils.py", line 108, in get_nearby_places
+    if distance <= max_distance:
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<=' not supported between instances of 'float' and 'NoneType'
+2025-02-08 20:13:26,264 - error_handler - ERROR - Error: Failed to find places
+2025-02-08 20:13:26,264 - error_handler - ERROR - Error: Failed to find places
+2025-02-08 20:20:16,199 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 20:28:40,330 - bot - INFO - Starting bot...
+2025-02-08 20:28:42,186 - bot - INFO - Bot handlers registered successfully
+2025-02-08 20:28:55,349 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 20:28:57,015 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:29:08,146 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:29:08,148 - findme_handler - INFO - Received location: lat=9.001932, lon=38.709309
+2025-02-08 20:29:08,741 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:29:08,760 - utils - INFO - No places found within 2000m of coordinates (9.001932, 38.709309)
+2025-02-08 20:29:18,427 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:29:18,450 - utils - INFO - Found 25 places
+2025-02-08 20:29:34,069 - bot - INFO - Button clicked: show_categories
+2025-02-08 20:29:39,778 - bot - INFO - Button clicked: show_categories
+2025-02-08 20:29:41,563 - bot - INFO - Button clicked: show_categories
+2025-02-08 20:29:51,509 - bot - INFO - Button clicked: menu_back
+2025-02-08 20:29:59,600 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:30:07,649 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:30:07,651 - findme_handler - INFO - Received location: lat=9.001932, lon=38.709309
+2025-02-08 20:30:08,267 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:30:08,275 - utils - INFO - No places found within 2000m of coordinates (9.001932, 38.709309)
+2025-02-08 20:30:12,842 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:30:12,861 - utils - INFO - Found 25 places
+2025-02-08 20:30:25,001 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:30:46,870 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:30:46,885 - findme_handler - INFO - Received location: lat=9.001932, lon=38.709309
+2025-02-08 20:30:47,498 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:30:47,498 - utils - INFO - No places found within 2000m of coordinates (9.001932, 38.709309)
+2025-02-08 20:30:57,472 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:30:57,495 - utils - INFO - Found 25 places
+2025-02-08 20:54:13,063 - bot - INFO - Starting bot...
+2025-02-08 20:54:14,663 - bot - INFO - Bot handlers registered successfully
+2025-02-08 20:56:19,970 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 20:56:22,204 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 20:56:30,039 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 20:56:30,039 - findme_handler - INFO - Received location: lat=9.001941, lon=38.709296
+2025-02-08 20:56:30,505 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:56:30,520 - utils - INFO - No places found within 2000m of coordinates (9.001941, 38.709296)
+2025-02-08 20:56:34,345 - utils - INFO - Searching through 25 locations...
+2025-02-08 20:56:34,345 - utils - INFO - Found 25 places
+2025-02-08 20:56:45,314 - bot - INFO - Button clicked: nav_findme
+2025-02-08 20:56:48,733 - bot - INFO - Button clicked: nav_findme
+2025-02-08 20:57:11,263 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 20:57:17,004 - bot - INFO - Button clicked: nav_categories
+2025-02-08 20:57:17,004 - categories_handler - INFO - Showing categories to User 8123395897
