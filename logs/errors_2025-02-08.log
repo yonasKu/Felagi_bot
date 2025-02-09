@@ -409,3 +409,57 @@ TypeError: get_nearby_places() got an unexpected keyword argument 'category'
 2025-02-08 23:19:50,868 - utils - INFO - Found 25 places
 2025-02-08 23:20:01,378 - utils - INFO - Searching through 25 locations...
 2025-02-08 23:20:01,393 - utils - INFO - Found 25 places
+2025-02-08 23:51:25,890 - bot - INFO - Starting bot...
+2025-02-08 23:51:28,051 - bot - INFO - Bot handlers registered successfully
+2025-02-08 23:51:29,297 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 23:51:35,630 - bot - INFO - Button clicked: nav_guide
+2025-02-08 23:51:35,630 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:51:39,035 - bot - INFO - Button clicked: guide_attractions
+2025-02-08 23:51:39,035 - city_guide_handler - INFO - User 8123395897 selected guide: attractions
+2025-02-08 23:51:43,473 - bot - INFO - Button clicked: show_guide
+2025-02-08 23:51:43,473 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:51:44,886 - bot - INFO - Button clicked: guide_subcities
+2025-02-08 23:51:44,886 - city_guide_handler - INFO - User 8123395897 selected guide: subcities
+2025-02-08 23:51:49,841 - bot - INFO - Button clicked: show_guide
+2025-02-08 23:51:49,857 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:51:51,363 - bot - INFO - Button clicked: guide_transport
+2025-02-08 23:51:51,363 - city_guide_handler - INFO - User 8123395897 selected guide: transport
+2025-02-08 23:51:56,386 - bot - INFO - Button clicked: show_guide
+2025-02-08 23:51:56,388 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:51:58,016 - bot - INFO - Button clicked: guide_safety
+2025-02-08 23:51:58,016 - city_guide_handler - INFO - User 8123395897 selected guide: safety
+2025-02-08 23:52:00,682 - bot - INFO - Button clicked: show_guide
+2025-02-08 23:52:00,682 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:52:03,539 - bot - INFO - Button clicked: menu_back
+2025-02-08 23:52:06,200 - bot - INFO - Button clicked: nav_guide
+2025-02-08 23:52:06,200 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:52:08,195 - bot - INFO - Button clicked: guide_attractions
+2025-02-08 23:52:08,195 - city_guide_handler - INFO - User 8123395897 selected guide: attractions
+2025-02-08 23:56:05,432 - bot - INFO - Starting bot...
+2025-02-08 23:56:07,079 - bot - INFO - Bot handlers registered successfully
+2025-02-08 23:56:10,813 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 23:56:12,912 - findme_handler - INFO - Find Nearby Places initiated by User 8123395897
+2025-02-08 23:56:22,088 - findme_handler - INFO - Processing location for User 8123395897
+2025-02-08 23:56:22,088 - findme_handler - INFO - Received location: lat=9.001983, lon=38.709269
+2025-02-08 23:56:22,672 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:56:22,700 - utils - INFO - No places found within 2000m of coordinates (9.001983, 38.709269)
+2025-02-08 23:56:35,323 - utils - INFO - Searching through 25 locations...
+2025-02-08 23:56:35,350 - utils - INFO - Found 25 places
+2025-02-08 23:56:49,604 - menu_handler - INFO - New conversation started by User 8123395897 (No username)
+2025-02-08 23:56:51,801 - bot - INFO - Button clicked: nav_guide
+2025-02-08 23:56:51,816 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:56:53,368 - bot - INFO - Button clicked: guide_attractions
+2025-02-08 23:56:53,368 - city_guide_handler - INFO - User 8123395897 selected guide: attractions
+2025-02-08 23:57:04,526 - bot - INFO - Button clicked: guide_attractions_2
+2025-02-08 23:57:04,526 - city_guide_handler - INFO - User 8123395897 selected guide: attractions
+2025-02-08 23:57:11,346 - bot - INFO - Button clicked: guide_attractions_3
+2025-02-08 23:57:11,346 - city_guide_handler - INFO - User 8123395897 selected guide: attractions
+2025-02-08 23:57:15,247 - bot - INFO - Button clicked: guide_attractions_2
+2025-02-08 23:57:15,249 - city_guide_handler - INFO - User 8123395897 selected guide: attractions
+2025-02-08 23:57:17,027 - bot - INFO - Button clicked: show_guide
+2025-02-08 23:57:17,027 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:57:18,938 - bot - INFO - Button clicked: guide_transport
+2025-02-08 23:57:18,938 - city_guide_handler - INFO - User 8123395897 selected guide: transport
+2025-02-08 23:57:28,380 - bot - INFO - Button clicked: show_guide
+2025-02-08 23:57:28,380 - city_guide_handler - INFO - Showing city guide to User 8123395897
+2025-02-08 23:57:32,919 - bot - INFO - Button clicked: menu_back

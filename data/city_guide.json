@@ -1,0 +1,243 @@
+{
+  "attractions": [
+    {
+      "name": "Unity Park",
+      "emoji": "🏰",
+      "description": "Historic palace complex turned museum showcasing Ethiopian history and culture. Features beautiful gardens and architecture.",
+      "location": {
+        "latitude": 9.0370,
+        "longitude": 38.7627
+      },
+      "entry_fee": "500-1000 ETB",
+      "opening_hours": "Tuesday-Sunday: 9:00 AM - 5:00 PM",
+      "highlights": [
+        "Imperial Palace Buildings",
+        "Traditional Gardens",
+        "Ethiopian Cultural Exhibits",
+        "Zoo Section"
+      ],
+      "tips": [
+        "Book tickets in advance",
+        "Plan for at least 3 hours to explore",
+        "Guided tours available"
+      ]
+    },
+    {
+      "name": "National Museum of Ethiopia",
+      "emoji": "🏛️",
+      "description": "Home to archaeological and historical artifacts, including Lucy, the famous early hominid fossil.",
+      "location": {
+        "latitude": 9.0377,
+        "longitude": 38.7614
+      },
+      "entry_fee": "100 ETB",
+      "opening_hours": "Daily: 8:30 AM - 5:00 PM",
+      "highlights": [
+        "Lucy Fossil Exhibit",
+        "Ancient Ethiopian Artifacts",
+        "Historical Documents",
+        "Archaeological Discoveries"
+      ],
+      "tips": [
+        "Photography may be restricted",
+        "Guided tours recommended",
+        "Visit early to avoid crowds"
+      ]
+    },
+    {
+      "name": "Holy Trinity Cathedral",
+      "emoji": "⛪",
+      "description": "Beautiful church and architectural landmark. Final resting place of Emperor Haile Selassie."
+    },
+    {
+      "name": "Entoto Park",
+      "emoji": "🏔",
+      "description": "Mountain park with panoramic city views. Features adventure activities and restaurants."
+    },
+    {
+      "name": "Merkato",
+      "emoji": "🏪",
+      "description": "Africa's largest open-air market. A bustling hub of commerce and culture."
+    },
+    {
+      "name": "Red Terror Martyrs Museum",
+      "emoji": "🏛",
+      "description": "Memorial museum documenting a crucial period in Ethiopian history."
+    },
+    {
+      "name": "Mount Entoto",
+      "emoji": "⛰️",
+      "description": "Historic mountain offering panoramic views and home to ancient churches."
+    },
+    {
+      "name": "Ethnological Museum",
+      "emoji": "🏛",
+      "description": "Located in Haile Selassie's former palace, showcasing Ethiopian cultural heritage."
+    },
+    {
+      "name": "St. George Cathedral",
+      "emoji": "⛪",
+      "description": "Octagonal church known for its beautiful architecture and historical significance."
+    },
+    {
+      "name": "Africa Hall",
+      "emoji": "🏛",
+      "description": "Historic building and headquarters of the United Nations Economic Commission for Africa."
+    },
+    {
+      "name": "Meskel Square",
+      "emoji": "🏟",
+      "description": "Major public square and gathering place for cultural celebrations."
+    },
+    {
+      "name": "Lion of Judah Monument",
+      "emoji": "🦁",
+      "description": "Historic statue symbolizing Ethiopian monarchy and independence."
+    },
+    {
+      "name": "Addis Ababa Museum",
+      "emoji": "🏛",
+      "description": "City museum showcasing the history and development of Addis Ababa."
+    },
+    {
+      "name": "Zoma Museum",
+      "emoji": "🏺",
+      "description": "Contemporary art museum with traditional architecture and ecological focus."
+    },
+    {
+      "name": "Sheger Park",
+      "emoji": "🌳",
+      "description": "Modern riverside park with walking trails and recreational facilities."
+    }
+  ],
+  "subcities": {
+    "Bole": {
+      "description": "Modern business district with shopping centers, hotels, and restaurants. Home to Bole International Airport.",
+      "main_areas": "Bole Road, Bole Medhanialem, Bole Atlas",
+      "highlights": [
+        "Bole International Airport",
+        "High-end Shopping Centers",
+        "Modern Restaurants",
+        "Business District"
+      ],
+      "transportation": [
+        "Easily accessible by taxi",
+        "Light rail station available",
+        "Major bus routes"
+      ]
+    },
+    "Kirkos": {
+      "description": "Central district with government offices, cultural venues, and business centers.",
+      "main_areas": "Kasanchis, Kazanchis, Mexico Square",
+      "highlights": [
+        "Africa Union Headquarters",
+        "National Theatre",
+        "Major Hotels",
+        "Business Centers"
+      ],
+      "transportation": [
+        "Light rail access",
+        "Multiple bus routes",
+        "Abundant taxis"
+      ]
+    },
+    "Arada": {
+      "main_areas": "Piassa, Arat Kilo, Sidist Kilo",
+      "description": "Historic district with traditional markets and cultural heritage."
+    },
+    "Yeka": {
+      "main_areas": "Megenagna, CMC, Kotebe",
+      "description": "Residential area with growing business centers and universities."
+    },
+    "Addis Ketema": {
+      "main_areas": "Merkato, Autobus Tera",
+      "description": "Home to Africa's largest open-air market and major transport hub."
+    }
+  },
+  "transport_info": {
+    "public_transport": [
+      {
+        "type": "Light Rail",
+        "description": "Modern transit system connecting major areas",
+        "operating_hours": "6:00 AM - 10:00 PM",
+        "fare_range": "2-6 ETB",
+        "routes": [
+          "North-South Line: Menelik II Square to Kaliti",
+          "East-West Line: Ayat to Torhailoch"
+        ]
+      },
+      {
+        "type": "Public Buses",
+        "description": "Extensive bus network throughout the city",
+        "operating_hours": "5:30 AM - 9:30 PM",
+        "fare_range": "2-7 ETB",
+        "tips": [
+          "Buy tickets at stations",
+          "Exact change preferred",
+          "Can be crowded during peak hours"
+        ]
+      }
+    ],
+    "taxis": [
+      {
+        "type": "Blue/White Taxis",
+        "description": "Traditional shared taxis following fixed routes",
+        "fare_range": "5-15 ETB per person",
+        "tips": [
+          "Shared with other passengers",
+          "Fixed routes",
+          "Negotiate fare before boarding"
+        ]
+      },
+      {
+        "type": "Ride Apps",
+        "description": "Modern ride-hailing services",
+        "available_apps": ["Ride", "Feres", "ZATO"],
+        "tips": [
+          "More expensive but convenient",
+          "Available 24/7",
+          "Payment by cash or digital"
+        ]
+      }
+    ]
+  },
+  "safety_tips": {
+    "general_safety": [
+      "Keep valuables secure and out of sight",
+      "Use registered taxis or ride-hailing apps at night",
+      "Stay aware of your surroundings in crowded areas",
+      "Keep copies of important documents"
+    ],
+    "health_safety": [
+      "Drink bottled or filtered water",
+      "Use reputable restaurants and food establishments",
+      "Carry basic medical supplies",
+      "Have travel insurance coverage"
+    ],
+    "emergency_numbers": {
+      "Police": "911",
+      "Ambulance": "907",
+      "Fire": "939",
+      "Tourist Police": "+251 116 670290"
+    }
+  },
+  "useful_phrases": {
+    "Amharic": [
+      {
+        "phrase": "Selam",
+        "meaning": "Hello",
+        "pronunciation": "se-lam"
+      },
+      {
+        "phrase": "Ameseginalehu",
+        "meaning": "Thank you",
+        "pronunciation": "ame-se-gi-na-le-hu"
+      },
+      {
+        "phrase": "Dehna hunu",
+        "meaning": "Goodbye",
+        "pronunciation": "deh-na hu-nu"
+      }
+    ]
+  }
+} 

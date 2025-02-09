@@ -16,8 +16,14 @@ from telegram.ext import (
 )
 from utils import setup_logger, get_nearby_places, handle_error, format_distance
 from config import RADIUS_SEARCH, SUPPORTED_CATEGORIES
+import json
+import os
+from math import radians, sin, cos, sqrt, atan2
 
 logger = setup_logger("findme_handler")
+
+# Constants
+ITEMS_PER_PAGE = 6  # Number of items per page
 
 # States
 LOCATION = 1
@@ -26,6 +32,66 @@ CATEGORY_SELECTION = 2
 
 class FindMeHandler:
     """Handler for Find Nearby Places functionality"""
+
+    def __init__(self):
+        self.locations = self.load_locations()
+
+    @staticmethod
+    def load_locations():
+        """Load locations from JSON file"""
+        try:
+            with open("data/locations.json", "r", encoding="utf-8") as f:
+                return json.load(f)["locations"]
+        except Exception as e:
+            logger.error(f"Error loading locations: {str(e)}")
+            return []
+
+    @staticmethod
+    def calculate_distance(lat1, lon1, lat2, lon2):
+        """Calculate distance between two points in kilometers"""
+        R = 6371  # Earth's radius in kilometers
+
+        lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
+        dlat = lat2 - lat1
+        dlon = lon2 - lon1
+
+        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+        c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        distance = R * c
+
+        return distance
+
+    @staticmethod
+    def get_nearby_places(latitude, longitude, radius_meters):
+        """Get nearby places within specified radius"""
+        try:
+            handler = FindMeHandler()
+            nearby_places = []
+            radius_km = radius_meters / 1000  # Convert to kilometers
+
+            for place in handler.locations:
+                if not place.get("coordinates"):
+                    continue
+
+                distance = handler.calculate_distance(
+                    latitude,
+                    longitude,
+                    place["coordinates"]["latitude"],
+                    place["coordinates"]["longitude"],
+                )
+
+                if distance <= radius_km:
+                    place_copy = place.copy()
+                    place_copy["distance"] = distance
+                    nearby_places.append(place_copy)
+
+            # Sort by distance
+            nearby_places.sort(key=lambda x: x["distance"])
+            return nearby_places, "OK"
+
+        except Exception as e:
+            logger.error(f"Error getting nearby places: {str(e)}")
+            return [], "ERROR"
 
     @staticmethod
     async def start_findme(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -94,48 +160,72 @@ class FindMeHandler:
                 "🔍 Finding places near you...", reply_markup=ReplyKeyboardRemove()
             )
 
-            # Get nearby places within 2km radius
-            places, status = get_nearby_places(
+            # Get nearby places
+            places, status = FindMeHandler.get_nearby_places(
                 location.latitude, location.longitude, RADIUS_SEARCH
             )
 
             if status == "OK" and places:
-                response = "🎯 *Nearest Places to You:*\n\n"
-                for place in places[:5]:  # Show top 5 nearest places
+                # Show first page of results
+                page = 1
+                start_idx = (page - 1) * ITEMS_PER_PAGE
+                end_idx = start_idx + ITEMS_PER_PAGE
+                current_places = places[start_idx:end_idx]
+                total_pages = (len(places) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
+
+                response = (
+                    f"🎯 *Nearest Places to You*\nPage {page} of {total_pages}\n\n"
+                )
+                for place in current_places:
                     response += f"📍 *{place['name']}*\n"
-                    if "area" in place:
-                        response += f"📌 Area: {place['area']}\n"
-                    if "distance" in place:
-                        response += f"📏 {format_distance(place['distance'])}\n"
-                    if "description" in place:
+                    response += f"🏢 Category: {place['category']}\n"
+                    response += f"📏 Distance: {place['distance']:.1f}km\n"
+                    if place.get("description"):
                         response += f"ℹ️ {place['description']}\n"
-                    if "opening_hours" in place:
+                    if place.get("opening_hours"):
                         response += f"🕒 {place['opening_hours']}\n"
-                    if "contact" in place:
+                    if place.get("contact"):
                         contact = place["contact"]
-                        if "phone" in contact:
+                        if contact.get("phone"):
                             response += f"📞 {contact['phone']}\n"
-                        if "website" in contact:
+                        if contact.get("website"):
                             response += f"🌐 {contact['website']}\n"
                     response += "\n"
 
-                keyboard = [
-                    [
+                # Create navigation buttons
+                keyboard = []
+                nav_row = []
+
+                if page < total_pages:
+                    nav_row.append(
                         InlineKeyboardButton(
-                            "📋 Browse by Category", callback_data="show_categories"
+                            "See More ▶️", callback_data=f"page_all_{page + 1}"
                         )
-                    ],
+                    )
+
+                if nav_row:
+                    keyboard.append(nav_row)
+
+                # Add category and menu buttons
+                keyboard.extend(
                     [
-                        InlineKeyboardButton(
-                            "🔍 Search Again", callback_data="nav_findme"
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "🔙 Back to Menu", callback_data="menu_back"
-                        )
-                    ],
-                ]
+                        [
+                            InlineKeyboardButton(
+                                "📋 Browse by Category", callback_data="show_categories"
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "🔍 Search Again", callback_data="nav_findme"
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "🔙 Back to Menu", callback_data="menu_back"
+                            )
+                        ],
+                    ]
+                )
 
                 await update.message.reply_text(
                     response,
@@ -176,12 +266,24 @@ class FindMeHandler:
             query = update.callback_query
             await query.answer()
 
+            # Get unique categories from locations
+            handler = FindMeHandler()
+            categories = sorted(
+                list(
+                    set(
+                        loc["category"]
+                        for loc in handler.locations
+                        if "category" in loc
+                    )
+                )
+            )
+
             keyboard = []
-            for category in SUPPORTED_CATEGORIES:
+            for category in categories:
                 keyboard.append(
                     [
                         InlineKeyboardButton(
-                            f"📍 {category}", callback_data=f"cat_{category}"
+                            f"📍 {category}", callback_data=f"cat_{category}_1"
                         )
                     ]
                 )
@@ -201,116 +303,108 @@ class FindMeHandler:
             return ConversationHandler.END
 
     @staticmethod
-    async def handle_category_selection(
-        update: Update, context: ContextTypes.DEFAULT_TYPE
-    ):
-        """Handle category selection"""
+    async def handle_pagination(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle pagination for all places or category-specific places"""
         try:
             query = update.callback_query
             await query.answer()
 
-            category = query.data.replace("cat_", "")
-            last_location = context.user_data.get("last_location")
+            # Parse callback data
+            _, type_, page = query.data.split("_")  # page_all_2 or page_category_2
+            page = int(page)
 
-            if not last_location:
+            location = context.user_data.get("last_location")
+            if not location:
                 await query.message.edit_text(
-                    "⚠️ Please share your location first.",
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton(
-                                    "🔍 Share Location", callback_data="nav_findme"
-                                )
-                            ]
-                        ]
-                    ),
-                )
-                return ConversationHandler.END
-
-            # Get ALL places with distances calculated
-            places, status = get_nearby_places(
-                last_location["latitude"],
-                last_location["longitude"],
-                max_distance=None,  # This will return all places with distances
-            )
-
-            if status == "OK" and places:
-                # Filter by category and sort by distance
-                category_places = [p for p in places if p.get("category") == category]
-                if category_places:
-                    response = f"📍 *Nearest {category} Places:*\n\n"
-                    # Show top 3 nearest places in the category
-                    for place in category_places[:3]:
-                        response += f"*{place['name']}*\n"
-                        if "area" in place:
-                            response += f"📌 Area: {place['area']}\n"
-                        if "distance" in place:
-                            response += f"📏 {format_distance(place['distance'])}\n"
-                        if "description" in place:
-                            response += f"ℹ️ {place['description']}\n"
-                        if "opening_hours" in place:
-                            response += f"🕒 {place['opening_hours']}\n"
-                        if "contact" in place:
-                            contact = place["contact"]
-                            if "phone" in contact:
-                                response += f"📞 {contact['phone']}\n"
-                            if "website" in contact:
-                                response += f"🌐 {contact['website']}\n"
-                        response += "\n"
-
-                    keyboard = [
-                        [
-                            InlineKeyboardButton(
-                                "📋 Other Categories", callback_data="show_categories"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "🔍 New Search", callback_data="nav_findme"
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "🔙 Back to Menu", callback_data="menu_back"
-                            )
-                        ],
-                    ]
-
-                    await query.message.edit_text(
-                        response,
-                        reply_markup=InlineKeyboardMarkup(keyboard),
-                        parse_mode="Markdown",
-                    )
-                    return CATEGORY_SELECTION
-
-                else:
-                    await query.message.edit_text(
-                        f"No {category} places found in the database.\nTry another category:",
-                        reply_markup=InlineKeyboardMarkup(
-                            [
-                                [
-                                    InlineKeyboardButton(
-                                        "📋 Show Categories",
-                                        callback_data="show_categories",
-                                    )
-                                ]
-                            ]
-                        ),
-                    )
-                    return CATEGORY_SELECTION
-
-            else:
-                await query.message.edit_text(
-                    "No places found in the database.",
+                    "Please share your location first.",
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("🔙 Back", callback_data="nav_findme")]]
                     ),
                 )
-                return ConversationHandler.END
+                return LOCATION
+
+            # Get places based on type
+            if type_ == "all":
+                places, _ = FindMeHandler.get_nearby_places(
+                    location["latitude"], location["longitude"], RADIUS_SEARCH
+                )
+            else:
+                # Handle category-specific pagination
+                places, _ = FindMeHandler.get_nearby_places(
+                    location["latitude"], location["longitude"], RADIUS_SEARCH
+                )
+                places = [p for p in places if p["category"] == type_]
+
+            # Calculate pagination
+            total_pages = (len(places) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
+            start_idx = (page - 1) * ITEMS_PER_PAGE
+            end_idx = start_idx + ITEMS_PER_PAGE
+            current_places = places[start_idx:end_idx]
+
+            # Format message
+            response = f"🎯 *{'All' if type_ == 'all' else type_} Places Near You*\n"
+            response += f"Page {page} of {total_pages}\n\n"
+
+            for place in current_places:
+                response += f"📍 *{place['name']}*\n"
+                response += f"🏢 Category: {place['category']}\n"
+                response += f"📏 Distance: {place['distance']:.1f}km\n"
+                if place.get("description"):
+                    response += f"ℹ️ {place['description']}\n"
+                if place.get("opening_hours"):
+                    response += f"🕒 {place['opening_hours']}\n"
+                if place.get("contact"):
+                    contact = place["contact"]
+                    if contact.get("phone"):
+                        response += f"📞 {contact['phone']}\n"
+                    if contact.get("website"):
+                        response += f"🌐 {contact['website']}\n"
+                response += "\n"
+
+            # Create navigation buttons
+            keyboard = []
+            nav_row = []
+
+            if page > 1:
+                nav_row.append(
+                    InlineKeyboardButton(
+                        "◀️ Previous", callback_data=f"page_{type_}_{page - 1}"
+                    )
+                )
+
+            if page < total_pages:
+                nav_row.append(
+                    InlineKeyboardButton(
+                        "Next ▶️", callback_data=f"page_{type_}_{page + 1}"
+                    )
+                )
+
+            if nav_row:
+                keyboard.append(nav_row)
+
+            # Add other navigation buttons
+            keyboard.extend(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "📋 Categories", callback_data="show_categories"
+                        )
+                    ],
+                    [InlineKeyboardButton("🔍 New Search", callback_data="nav_findme")],
+                    [InlineKeyboardButton("🔙 Main Menu", callback_data="menu_back")],
+                ]
+            )
+
+            await query.message.edit_text(
+                response,
+                reply_markup=InlineKeyboardMarkup(keyboard),
+                parse_mode="Markdown",
+            )
+            return CATEGORY_SELECTION
 
         except Exception as e:
-            logger.error(f"Error handling category selection: {str(e)}", exc_info=True)
-            await handle_error(update, "Failed to process category selection")
+            logger.error(f"Error handling pagination: {str(e)}", exc_info=True)
+            await handle_error(update, "Failed to show more places")
             return ConversationHandler.END
 
     @staticmethod
@@ -363,16 +457,16 @@ class FindMeHandler:
                         FindMeHandler.show_categories, pattern="^show_categories$"
                     ),
                     CallbackQueryHandler(
-                        FindMeHandler.handle_category_selection, pattern="^cat_"
+                        FindMeHandler.handle_pagination, pattern="^page_"
+                    ),
+                    CallbackQueryHandler(
+                        FindMeHandler.handle_pagination, pattern="^cat_"
                     ),
                 ],
             },
             fallbacks=[
                 CommandHandler("cancel", FindMeHandler.cancel),
                 CallbackQueryHandler(FindMeHandler.cancel, pattern="^menu_back$"),
-                MessageHandler(
-                    filters.Regex("^🔙 Back to Menu$"), FindMeHandler.cancel
-                ),
             ],
             name="findme_conversation",
         )
