@@ -15,6 +15,7 @@ from handlers.categories import CategoriesHandler
 from handlers.info import InfoHandler
 from utils import setup_logger, handle_error, show_main_menu
 from handlers.city_guide import CityGuideHandler
+from handlers.transport_hubs import TransportHubsHandler
 
 # Set up logger
 logger = setup_logger("bot")
@@ -81,17 +82,25 @@ async def handle_error(
             [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="menu_back")]
         ]
 
+        # Check if update is None first
+        if update is None:
+            logger.error("Update object is None")
+            return
+
         if update.callback_query:
             await update.callback_query.message.edit_text(
                 f"Sorry, an error occurred: {error_message}",
                 reply_markup=InlineKeyboardMarkup(keyboard),
             )
             await update.callback_query.answer()
-        else:
+        elif update.effective_message:
             await update.effective_message.reply_text(
                 f"Sorry, an error occurred: {error_message}",
                 reply_markup=InlineKeyboardMarkup(keyboard),
             )
+        else:
+            logger.error("Neither callback_query nor effective_message available")
+            
     except Exception as e:
         logger.error(f"Error in error handler: {str(e)}", exc_info=True)
 
@@ -103,17 +112,21 @@ def main():
         app = Application.builder().token(TOKEN).build()
 
         # Add handlers in specific order
-        # 1. City Guide handlers (must be before general callback handler)
+        # 1. City Guide handlers
         for handler in CityGuideHandler.get_handlers():
             app.add_handler(handler)
 
-        # 2. Conversation handler for FindMe
+        # 2. Transport Hubs handler
+        for handler in TransportHubsHandler.get_handlers():
+            app.add_handler(handler)
+
+        # 3. Conversation handler for FindMe
         app.add_handler(FindMeHandler.get_handler())
 
-        # 3. General callback query handler (for other button clicks)
+        # 4. General callback query handler (for other button clicks)
         app.add_handler(CallbackQueryHandler(handle_callback))
 
-        # 4. Command handlers
+        # 5. Command handlers
         for handler in MenuHandler.get_handlers():
             app.add_handler(handler)
 
@@ -123,11 +136,17 @@ def main():
         for handler in InfoHandler.get_handlers():
             app.add_handler(handler)
 
-        # 5. General message handler (lowest priority)
+        # 6. General message handler (lowest priority)
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-        # Add error handler
-        app.add_error_handler(handle_error)
+        # Update the error handler to match the expected signature
+        async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            """Handle errors by passing them to handle_error with all required arguments"""
+            error_message = str(context.error)
+            await handle_error(update, context, error_message)  # Added context argument
+
+        # Add error handler with the corrected function
+        app.add_error_handler(error_handler)
 
         logger.info("Bot handlers registered successfully")
         app.run_polling(allowed_updates=Update.ALL_TYPES)

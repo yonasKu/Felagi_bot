@@ -11,6 +11,7 @@ from telegram import (
 )
 from telegram.ext import ConversationHandler
 from config import RADIUS_SEARCH, LOCATIONS_FILE, MAX_RESULTS, SUPPORTED_CATEGORIES
+from telegram.ext import ContextTypes
 
 # Category Constants
 CATEGORY_EMOJIS = {
@@ -166,42 +167,30 @@ def get_nearby_places(
 
 
 # Navigation Functions
-async def show_main_menu(update: Update, context):
+async def show_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Show the main menu"""
-    try:
-        # Updated menu with City Guide option
-        keyboard = [
-            [InlineKeyboardButton("🔍 Find Places Nearby", callback_data="nav_findme")],
-            [InlineKeyboardButton("📋 Categories", callback_data="nav_categories")],
-            [InlineKeyboardButton("🏛 City Guide", callback_data="nav_guide")],
-            [InlineKeyboardButton("ℹ️ Info", callback_data="nav_info")],
-        ]
+    keyboard = [
+        [InlineKeyboardButton("🔍 Find Nearby Places", callback_data="nav_findme")],
+        [InlineKeyboardButton("🚏 Transport Hubs", callback_data="nav_transporthubs")],
+        [InlineKeyboardButton("🏛 City Guide", callback_data="nav_guide")],
+        [InlineKeyboardButton("📋 Categories", callback_data="nav_categories")],
+        [InlineKeyboardButton("ℹ️ Info", callback_data="nav_info")]
+    ]
 
-        message = (
-            "👋 Welcome to Addis Places Bot!\n\n"
-            "Discover the best of Addis Ababa:\n"
-            "• Find nearby places\n"
-            "• Browse by category\n"
-            "• Explore city guide\n"
-            "• Get information"
+    message = "Welcome to Addis Places Bot! Choose an option:"
+    if update.callback_query:
+        await update.callback_query.message.edit_text(
+            message,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            parse_mode="Markdown"
         )
-
-        if update.callback_query:
-            await update.callback_query.message.edit_text(
-                message,
-                reply_markup=InlineKeyboardMarkup(keyboard),
-                parse_mode="Markdown",
-            )
-        else:
-            await update.message.reply_text(
-                message,
-                reply_markup=InlineKeyboardMarkup(keyboard),
-                parse_mode="Markdown",
-            )
-
-    except Exception as e:
-        logger.error(f"Menu display error: {str(e)}")
-        await handle_error(update, "Could not show menu")
+        await update.callback_query.answer()
+    else:
+        await update.message.reply_text(
+            message,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            parse_mode="Markdown"
+        )
 
 
 async def show_results(update, places, category=None):

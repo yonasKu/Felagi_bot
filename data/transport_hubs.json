@@ -1,0 +1,59 @@
+{
+  "hubs": [
+    {
+      "name": "Meskel Square Transit Hub",
+      "category": "transit_hub",
+      "coordinates": {
+        "latitude": 9.0108,
+        "longitude": 38.7613
+      },
+      "description": "Major public transport hub in Addis Ababa.",
+      "services": ["Bus", "Taxi", "Light Rail"],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Bole International Airport Terminal",
+      "category": "airport_terminal",
+      "coordinates": {
+        "latitude": 8.9775,
+        "longitude": 38.7993
+      },
+      "description": "Main international airport serving Addis Ababa.",
+      "services": ["Airport Shuttle", "Taxi", "Bus"],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Piazza Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0300,
+        "longitude": 38.7500
+      },
+      "description": "Popular taxi stand in the heart of Addis Ababa.",
+      "services": ["Taxi", "Minibus"],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Addis Ababa Train Station",
+      "category": "train_station",
+      "coordinates": {
+        "latitude": 9.0227,
+        "longitude": 38.7469
+      },
+      "description": "Main train station connecting Addis Ababa to other regions.",
+      "services": ["Train", "Taxi", "Bus"],
+      "operating_hours": "5:00 AM - 11:00 PM"
+    },
+    {
+      "name": "Merkato Bus Terminal",
+      "category": "bus_terminal",
+      "coordinates": {
+        "latitude": 9.0350,
+        "longitude": 38.7200
+      },
+      "description": "Largest bus terminal in Addis Ababa.",
+      "services": ["Bus", "Minibus", "Taxi"],
+      "operating_hours": "5:00 AM - 10:00 PM"
+    }
+  ]
+} 
