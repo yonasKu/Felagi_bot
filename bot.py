@@ -82,25 +82,17 @@ async def handle_error(
             [InlineKeyboardButton("🔙 Back to Main Menu", callback_data="menu_back")]
         ]
 
-        # Check if update is None first
-        if update is None:
-            logger.error("Update object is None")
-            return
-
         if update.callback_query:
             await update.callback_query.message.edit_text(
                 f"Sorry, an error occurred: {error_message}",
                 reply_markup=InlineKeyboardMarkup(keyboard),
             )
             await update.callback_query.answer()
-        elif update.effective_message:
+        else:
             await update.effective_message.reply_text(
                 f"Sorry, an error occurred: {error_message}",
                 reply_markup=InlineKeyboardMarkup(keyboard),
             )
-        else:
-            logger.error("Neither callback_query nor effective_message available")
-            
     except Exception as e:
         logger.error(f"Error in error handler: {str(e)}", exc_info=True)
 
@@ -139,14 +131,8 @@ def main():
         # 6. General message handler (lowest priority)
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-        # Update the error handler to match the expected signature
-        async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-            """Handle errors by passing them to handle_error with all required arguments"""
-            error_message = str(context.error)
-            await handle_error(update, context, error_message)  # Added context argument
-
-        # Add error handler with the corrected function
-        app.add_error_handler(error_handler)
+        # Add error handler
+        app.add_error_handler(handle_error)
 
         logger.info("Bot handlers registered successfully")
         app.run_polling(allowed_updates=Update.ALL_TYPES)
