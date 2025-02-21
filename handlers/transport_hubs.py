@@ -16,7 +16,7 @@ from telegram.ext import (
     filters,
 )
 from utils import setup_logger, handle_error
-from math import radians, sin, cos, sqrt, atan2
+from geopy.distance import geodesic
 
 logger = setup_logger("transport_hubs_handler")
 
@@ -41,6 +41,29 @@ class TransportHubsHandler:
         except Exception as e:
             logger.error(f"Error loading transport hubs data: {str(e)}")
             return []
+
+    @staticmethod
+    def calculate_distance(lat1, lon1, lat2, lon2) -> float:
+        """
+        Calculate precise distance between two points using geopy's geodesic distance.
+        
+        Args:
+            lat1 (float): Latitude of first point
+            lon1 (float): Longitude of first point
+            lat2 (float): Latitude of second point
+            lon2 (float): Longitude of second point
+            
+        Returns:
+            float: Distance in kilometers
+        """
+        try:
+            point1 = (lat1, lon1)
+            point2 = (lat2, lon2)
+            distance = geodesic(point1, point2).kilometers
+            return round(distance, 2)  # Round to 2 decimal places
+        except Exception as e:
+            logger.error(f"Error calculating distance: {str(e)}")
+            return float('inf')  # Return infinity for invalid calculations
 
     async def show_main_menu(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Show main menu for transport hubs"""
@@ -135,37 +158,55 @@ class TransportHubsHandler:
             await handle_error(update, context, "Could not request location")
             return ConversationHandler.END
 
-    def calculate_distance(self, lat1, lon1, lat2, lon2):
-        """Calculate distance between two points using Haversine formula"""
-        R = 6371  # Earth's radius in kilometers
-
-        lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
-        dlat = lat2 - lat1
-        dlon = lon2 - lon1
-
-        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
-        c = 2 * atan2(sqrt(a), sqrt(1 - a))
-        distance = R * c
-
-        return distance
-
     async def show_nearest_hubs(
         self, update: Update, context: ContextTypes.DEFAULT_TYPE
     ):
         """Show nearest transport hubs based on user location"""
         try:
+            if not update or not update.message:
+                logger.error("Update or message object is missing")
+                await handle_error(update, context, "Invalid request. Please try again.")
+                return ConversationHandler.END
+
             user_location = update.message.location
+            if not user_location:
+                await update.message.reply_text(
+                    "❌ No location received. Please share your location using the button provided.",
+                    reply_markup=ReplyKeyboardMarkup([
+                        [KeyboardButton("📍 Share Location", request_location=True)],
+                        [KeyboardButton("❌ Cancel")]
+                    ], resize_keyboard=True)
+                )
+                return LOCATION
+
             nearest_hubs = []
+            user_coords = (user_location.latitude, user_location.longitude)
 
             for hub in self.hubs_data:
-                if "coordinates" in hub:
-                    distance = self.calculate_distance(
-                        user_location.latitude,
-                        user_location.longitude,
-                        hub["coordinates"]["latitude"],
-                        hub["coordinates"]["longitude"],
-                    )
+                if not hub.get('coordinates') or \
+                   'latitude' not in hub['coordinates'] or \
+                   'longitude' not in hub['coordinates']:
+                    continue
+
+                hub_coords = (hub['coordinates']['latitude'], hub['coordinates']['longitude'])
+                distance = self.calculate_distance(
+                    user_location.latitude,
+                    user_location.longitude,
+                    hub['coordinates']['latitude'],
+                    hub['coordinates']['longitude']
+                )
+                
+                if distance != float('inf'):
                     nearest_hubs.append((hub, distance))
+
+            if not nearest_hubs:
+                await update.message.reply_text(
+                    "⚠️ No hubs found near your location.",
+                    reply_markup=InlineKeyboardMarkup([[
+                        InlineKeyboardButton("🔙 Back to Transport Hubs", callback_data="nav_transporthubs")
+                    ]])
+                )
+                return ConversationHandler.END
 
             # Sort hubs by distance and get top 5
             nearest_hubs.sort(key=lambda x: x[1])
@@ -175,24 +216,41 @@ class TransportHubsHandler:
             for hub, distance in nearest_hubs:
                 message += (
                     f"🏢 *{hub['name']}*\n"
-                    f"📍 Distance: {distance:.1f} km\n"
-                    f"🕒 Operating Hours: {hub.get('operating_hours', 'Not specified')}\n"
-                    f"🚍 Services: {', '.join(hub.get('services', ['Not specified']))}\n\n"
+                    f"📍 Distance: {distance} km\n"
                 )
+                
+                # Add walking time estimate (assuming average walking speed of 5 km/h)
+                walking_time = (distance / 5) * 60  # Convert to minutes
+                message += f"👣 Est. Walking Time: {int(walking_time)} mins\n"
+                
+                # Add driving time estimate (assuming average speed of 30 km/h)
+                driving_time = (distance / 30) * 60  # Convert to minutes
+                message += f"🚗 Est. Driving Time: {int(driving_time)} mins\n"
+                
+                # Add optional information
+                if hub.get('operating_hours'):
+                    message += f"🕒 Operating Hours: {hub['operating_hours']}\n"
+                if hub.get('services'):
+                    message += f"🚍 Services: {', '.join(hub['services'])}\n"
+                if hub.get('description'):
+                    message += f"📝 {hub['description']}\n"
+                message += "\n"
 
-            keyboard = [
-                [
-                    InlineKeyboardButton(
-                        "🔙 Back to Transport Hubs", callback_data="nav_transporthubs"
-                    )
-                ]
-            ]
-
+            # Remove location keyboard and show results
             await update.message.reply_text(
                 message,
-                reply_markup=InlineKeyboardMarkup(keyboard),
-                parse_mode="Markdown",
+                reply_markup=InlineKeyboardMarkup([[
+                    InlineKeyboardButton("🔙 Back to Transport Hubs", callback_data="nav_transporthubs")
+                ]]),
+                parse_mode="Markdown"
             )
+            
+            # Clean up by removing the location keyboard
+            await update.message.reply_text(
+                "Location search completed.",
+                reply_markup=ReplyKeyboardRemove()
+            )
+            
             return ConversationHandler.END
 
         except Exception as e:
@@ -285,7 +343,7 @@ class TransportHubsHandler:
             keyboard.append(
                 [
                     InlineKeyboardButton(
-                        "�� Back to Categories", callback_data="explore_hubs"
+                        "🔙 Back to Categories", callback_data="explore_hubs"
                     )
                 ]
             )

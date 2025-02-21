@@ -182,7 +182,7 @@
       {
         "type": "Blue/White Taxis",
         "description": "Traditional shared taxis following fixed routes",
-        "fare_range": "5-15 ETB per person",
+        "fare_range": "10-15 ETB per person",
         "tips": [
           "Shared with other passengers",
           "Fixed routes",

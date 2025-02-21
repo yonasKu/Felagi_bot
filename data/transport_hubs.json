@@ -8,29 +8,40 @@
         "longitude": 38.7613
       },
       "description": "Major public transport hub in Addis Ababa.",
-      "services": ["Bus", "Taxi", "Light Rail"],
+      "services": [
+        "Bus",
+        "Taxi",
+        "Light Rail"
+      ],
       "operating_hours": "24/7"
     },
     {
       "name": "Bole International Airport Terminal",
       "category": "airport_terminal",
       "coordinates": {
-        "latitude": 8.9775,
+        "latitude": 8.9779,
         "longitude": 38.7993
       },
       "description": "Main international airport serving Addis Ababa.",
-      "services": ["Airport Shuttle", "Taxi", "Bus"],
+      "services": [
+        "Airport Shuttle",
+        "Taxi",
+        "Bus"
+      ],
       "operating_hours": "24/7"
     },
     {
       "name": "Piazza Taxi Stand",
       "category": "taxi_stand",
       "coordinates": {
-        "latitude": 9.0300,
+        "latitude": 9.0370,
         "longitude": 38.7500
       },
       "description": "Popular taxi stand in the heart of Addis Ababa.",
-      "services": ["Taxi", "Minibus"],
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
       "operating_hours": "24/7"
     },
     {
@@ -41,7 +52,11 @@
         "longitude": 38.7469
       },
       "description": "Main train station connecting Addis Ababa to other regions.",
-      "services": ["Train", "Taxi", "Bus"],
+      "services": [
+        "Train",
+        "Taxi",
+        "Bus"
+      ],
       "operating_hours": "5:00 AM - 11:00 PM"
     },
     {
@@ -52,8 +67,139 @@
         "longitude": 38.7200
       },
       "description": "Largest bus terminal in Addis Ababa.",
-      "services": ["Bus", "Minibus", "Taxi"],
+      "services": [
+        "Bus",
+        "Minibus",
+        "Taxi"
+      ],
       "operating_hours": "5:00 AM - 10:00 PM"
+    },
+    {
+      "name": "Kazanchis Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0172,
+        "longitude": 38.7618
+      },
+      "description": "A busy taxi stop near hotels and businesses in Addis Ababa.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Arat Kilo Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0382,
+        "longitude": 38.7610
+      },
+      "description": "A key taxi hub in Addis Ababa, serving students and residents.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Megenagna Transport Hub",
+      "category": "transit_hub",
+      "coordinates": {
+        "latitude": 9.0304,
+        "longitude": 38.7926
+      },
+      "description": "Major transit hub with bus and taxi services in the eastern part of the city.",
+      "services": [
+        "Bus",
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Stadium Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0166,
+        "longitude": 38.7552
+      },
+      "description": "A well-known taxi stand near Addis Ababa Stadium.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Sarbet Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0020,
+        "longitude": 38.7275
+      },
+      "description": "A busy taxi stand in the Sarbet area, serving residential neighborhoods.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Torhailoch Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 8.9963,
+        "longitude": 38.7448
+      },
+      "description": "A taxi stand connecting the western part of Addis Ababa.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Gotera Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0026,
+        "longitude": 38.7665
+      },
+      "description": "A taxi stand serving the Gotera area near industrial zones.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "CMC Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 9.0442,
+        "longitude": 38.8183
+      },
+      "description": "A taxi stand located in the residential and commercial CMC area.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
+    },
+    {
+      "name": "Bole Medhanialem Taxi Stand",
+      "category": "taxi_stand",
+      "coordinates": {
+        "latitude": 8.9943,
+        "longitude": 38.7879
+      },
+      "description": "A key taxi stand in the Bole Medhanialem area, close to shopping malls and hotels.",
+      "services": [
+        "Taxi",
+        "Minibus"
+      ],
+      "operating_hours": "24/7"
     }
   ]
-} 
+}
